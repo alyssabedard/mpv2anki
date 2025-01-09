@@ -39,3 +39,12 @@ luac.out
 *.x86_64
 *.hex
 
+# IDE/OS
+.idea
+.vscode
+.DS_Store
+
+# Personal Notes
+notes
+
+
