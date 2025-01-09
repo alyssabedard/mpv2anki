@@ -1,4 +1,4 @@
-<div style="text-align: center">
+<div align="center">
 <h1>mpv2anki</h1>
 </div>
 
