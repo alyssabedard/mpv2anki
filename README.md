@@ -5,6 +5,7 @@
 <div style="text-align: center">
 <img src="images/demo.gif" width="1200" alt="Demo of MPV to Anki"/>
 </div>
+<br>
 
 A simple script to assist your language learning journey in any language by automatically capturing multimedia content from [mpv](https://mpv.io/) to [Anki](https://apps.ankiweb.net/). 
 It extracts the current subtitles (target language and native/secondary language), corresponding audio, 
@@ -104,7 +105,7 @@ GIF from 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_ 
 - [My Anime List (MAL)](https://myanimelist.net/anime/37208/Mo_Dao_Zu_Shi)
 - [Douban 豆瓣](https://movie.douban.com/subject/27015848/)
 
-<div style="text-align: center">
+<div align="center">
 <img src="images/mytype.png" width="600" alt="Screenshot mo dao zu shi"/>
 </div>
 
