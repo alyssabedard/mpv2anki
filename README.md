@@ -55,13 +55,9 @@ that work directly in the web browser.
 
 More detailed documentation is **coming soon** and will be available in the `docs` folder, including:
 
-### For non-technical and technical users
-_Feel free to reach out on Discord if you need any help._
-1. [ ] Complete installation guide
-2. [ ] Configuration options
-3. [ ] Troubleshooting common issues
+_Questions or need help? Open a Discussion in this repository. 
+Feel free to contribute._
 
-Feel free to contribute.
 
 ### Notes for now:
 - The current note type configurations can be found in `scripts/mpv2anki/modules/ankiconnect.lua`
@@ -87,8 +83,8 @@ Feel free to contribute.
 ### OS Support
 
 This script has been primarily tested on macOS. While it should work on Linux and Windows, I currently don't have access to these OS for thorough testing.
-
 Feel free to contribute.
+
 
 ### Makefile Commands
 
