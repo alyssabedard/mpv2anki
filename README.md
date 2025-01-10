@@ -2,14 +2,25 @@
 <h1 style="font-family: monospace;">mpv2anki</h1>
 </div>
 
-<div style="text-align: center">
-<img src="images/demo.gif" width="1200" alt="Demo of MPV to Anki"/>
+<div align="center">
+<img src="screenshots/demo.gif" width="1200" alt="Demo of MPV to Anki"/>
+💜
 </div>
-<br>
+
 
 A simple script to assist your language learning journey in any language by automatically capturing multimedia content from [mpv](https://mpv.io/) to [Anki](https://apps.ankiweb.net/). 
 It extracts the current subtitles (target language and native/secondary language), corresponding audio, 
 and screenshot when triggered, making it easy to create flashcards.
+
+## Important Notes
+
+**OS**  
+This script has been primarily tested on macOS. While it should work on Linux and Windows, I currently don't have access to these OS for thorough testing.
+
+_Windows Status (2025-01-10): Currently debugging MPV script loading issues 🤔_
+
+**Documentation**  
+More detailed documentation is **coming soon** for non-technical users
 
 ## Requirements
 (all open-source)
@@ -18,61 +29,55 @@ and screenshot when triggered, making it easy to create flashcards.
 - [Anki](https://apps.ankiweb.net/) - _powerful [SRS](https://en.wikipedia.org/wiki/Spaced_repetition) flashcard app_
 - [AnkiConnect](https://ankiweb.net/shared/info/2055492159) - _Anki add-on_
 
-_AnkiConnect addon must be installed in Anki and Anki must be running while using this script._
+> **Note**: _AnkiConnect add-on must be installed in Anki and Anki must be running while using this script._
 
 
 ## Features
 
-1. [x] Extract current subtitle text from MPV
-2. [x] Capture audio segment corresponding to subtitle timing
-3. [x] Take screenshots at current playback position
-4. [x] Automatically create Anki cards with extracted content
-5. [x] Integration with MPV's keybinding system
+1. [x] Automatically create Anki cards with extracted content
+   2. [x] Extract current subtitle text from MPV
+   3. [x] Capture audio segment corresponding to subtitle timing
+   4. [x] Take screenshots at current playback position
 
 ### Work in Progress 🚧
 
-#### Custom Audio Segment Selection
-Currently, the audio extraction strictly follows subtitle timing. I will work on an additional option that will allow to:
-1. [ ] Set custom start and end points for audio clips independent of subtitle timing
-
-#### Documentation
-1. [ ] Documentation for non-technical and technical users
-2. [ ] Documentation for IINA set-up
-
-#### Video Stream
-Audio extraction currently only works with local video files
-1. [ ] Audio extraction for URL/Video stream support (platforms supported by [yt-dlp](https://github.com/yt-dlp/yt-dlp))
-
-For video streams I recommend using free tools like [Abs Player](https://chromewebstore.google.com/detail/asbplayer-language-learni/hkledmpjpaehamkiehglnbelcpdflcab) 
-that work directly in the web browser.
-
-#### Field Mapping
-1. [ ] Simplified field mapping configuration (no code editing required) for non-technical users
-2. [ ] Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`
+1. [ ] **Custom Audio Segment Selection** _(See Note 1)_
+   1. [ ] Set custom start and end points for audio clips independent of subtitle timing
+2. [ ] **Documentation**
+   1. [ ] for non-technical users
+   2. [ ] for IINA set-up
+3. [ ] **Audio extraction** _(See Note 2)_
+   1. [ ] for URL/Video stream support (platforms supported by [yt-dlp](https://github.com/yt-dlp/yt-dlp))
+4. [ ] **Field Mapping**
+   1. [ ] Simplified field mapping configuration (no code editing required) for non-technical users
+   2. [ ] Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`
 
 
-## Documentation 🚧
+> **Note 1**: Currently, the audio extraction strictly follows subtitle 
+> timing.
 
-More detailed documentation is **coming soon** and will be available in the `docs` folder.
-
-_Questions or need help? Open a [Discussion](https://github.com/alyssabedard/mpv2anki/discussions) in this repository. 
-Feel free to contribute._
-
-Documentation [here](docs)
+> **Note 2**: Audio extraction currently only works with local video files.
+> For video streams I recommend using free tools like [Abs Player](https://chromewebstore.google.com/detail/asbplayer-language-learni/hkledmpjpaehamkiehglnbelcpdflcab) 
+> that work directly in the web browser.
 
 
 
-## GIF
+## Documentation
+
+🚧 More detailed documentation is **coming soon** for non-technical language learners and will be available in the [docs](docs) folder.
+
+
+
+## Support & Contributing
+
+| Type | Description                                      |
+|------|--------------------------------------------------|
+|[Discussions](https://github.com/alyssabedard/mpv2anki/discussions) | Questions or feature requests                    |
+|[Issues](https://github.com/alyssabedard/mpv2anki/issues) | Bug reports                                      | 
+|[Contributing](https://github.com/alyssabedard/mpv2anki/fork) | Fork the repo and submit a PR                    |
+|Help Wanted | Need help with OS-specific documentation/testing |
+
+## Credits
 GIF from 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_  |  _The Founder of Diabolism_  |  _The Master of Diabolism_) S01:E02
 - [My Anime List (MAL)](https://myanimelist.net/anime/37208/Mo_Dao_Zu_Shi)
 - [Douban 豆瓣](https://movie.douban.com/subject/27015848/)
-
-<div align="center">
-<img src="images/mytype.png" width="600" alt="Screenshot mo dao zu shi"/>
-</div>
-
-Seen in GIF:
-- _Anki add-on with pinyin : [Hanzi2Ruby](https://github.com/alyssabedard/Hanzi2Ruby)_ (coming soon)
-
-- _Anki Retro Note Type: [RetroKeAi](https://github.com/alyssabedard/RetroKeAi)_ (coming soon)
-

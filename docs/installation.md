@@ -1,3 +1,5 @@
+# Installation
+
 ### Notes for now:
 - The current note type configurations can be found in `scripts/mpv2anki/modules/ankiconnect.lua`
   and `scripts/mpv2anki/config.lua`
@@ -18,12 +20,6 @@
 > **Note**: You can customize these keybindings in your MPV configuration,
 > but make sure to check `main.lua` and `config.lua` to avoid conflicts with
 > the script's functionality. This also applies to MPV-based media players like IINA (check the software settings).
-
-### OS Support
-
-This script has been primarily tested on macOS. While it should work on Linux and Windows, I currently don't have access to these OS for thorough testing.
-Feel free to contribute.
-
 
 
 ### Makefile Commands
