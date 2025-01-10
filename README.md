@@ -35,9 +35,9 @@ More detailed documentation is **coming soon** for non-technical users
 ## Features
 
 1. [x] Automatically create Anki cards with extracted content
-   2. [x] Extract current subtitle text from MPV
-   3. [x] Capture audio segment corresponding to subtitle timing
-   4. [x] Take screenshots at current playback position
+   1. [x] Extract current subtitle text from MPV
+   2. [x] Capture audio segment corresponding to subtitle timing
+   3. [x] Take screenshots at current playback position
 
 ### Work in Progress 🚧
 
