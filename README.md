@@ -78,6 +78,6 @@ More detailed documentation is **coming soon** for non-technical users
 |Help Wanted | Need help with OS-specific documentation/testing |
 
 ## Credits
-GIF from 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_  |  _The Founder of Diabolism_  |  _The Master of Diabolism_) S01:E02
+GIF: donghua (anime) 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_  |  _The Founder of Diabolism_  |  _The Master of Diabolism_) S01:E02
 - [My Anime List (MAL)](https://myanimelist.net/anime/37208/Mo_Dao_Zu_Shi)
 - [Douban 豆瓣](https://movie.douban.com/subject/27015848/)
