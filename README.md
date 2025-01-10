@@ -53,7 +53,7 @@ that work directly in the web browser.
 
 ## Documentation 🚧
 
-More detailed documentation is **coming soon** and will be available in the `docs` folder, including:
+More detailed documentation is **coming soon** and will be available in the `docs` folder.
 
 _Questions or need help? Open a Discussion in this repository. 
 Feel free to contribute._
