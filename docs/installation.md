@@ -10,6 +10,8 @@
   them to your preferences. However, make sure to review both `main.lua` and `config.lua`
   to ensure your changes don't conflict with the script's functionality.
 
+
+# Usage
 ### Default mpv Keybindings
 
 | Key       | Command                            | Description               | 
@@ -21,11 +23,4 @@
 > but make sure to check `main.lua` and `config.lua` to avoid conflicts with
 > the script's functionality. This also applies to MPV-based media players like IINA (check the software settings).
 
-
-### Makefile Commands
-
-| Command            | Description                                                    | Notes                                                                            |
-|--------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------|
-| `make sync-to-mpv` | Copy files to MPV configuration directory according to your OS | **WARNING**: Will replace your existing configuration files in the MPV directory |
-| `make help`        | Display all available commands                                 | Shows descriptions for each command                                              |
 

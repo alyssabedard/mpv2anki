@@ -15,7 +15,7 @@ and screenshot when triggered, making it easy to create flashcards.
 ## Important Notes
 
 **OS**  
-This script has been primarily tested on macOS. While it should work on Linux and Windows, I currently don't have access to these OS for thorough testing.
+This script has been primarily tested on macOS.  I currently don't have access to a Linux and Windows machines for thorough testing.
 
 _Windows Status (2025-01-10): Currently debugging MPV script loading issues 🤔_
 

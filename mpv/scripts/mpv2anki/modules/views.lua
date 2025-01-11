@@ -12,7 +12,7 @@ local views = {}
 
 function views.show_commands()
     -- Shows available key binding commands for OSD in mpv
-    local display = "=== Available Commands: ===\n"
+    local display = "=== [mpv2anki] Available Commands ===\n"
     for _, info in pairs(config.SHORTCUTS) do
         -- Each info is now a table with {key_binding, description}
         display = display .. "[" .. info[1] .. "] : " .. info[2] .. "\n"

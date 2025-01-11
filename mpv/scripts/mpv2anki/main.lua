@@ -134,6 +134,6 @@ end
     Note: Make sure you don't have another binding name with the same name
     if you have another scripts and binding with the same name it might create a conflict !
 ]]
-mp.add_key_binding(config.SHORTCUTS.CAPTURE[1], "capture-to-anki", capture_to_anki) -- To implement
+--mp.add_key_binding(config.SHORTCUTS.CAPTURE[1], "capture-to-anki", capture_to_anki) -- To implement
 mp.add_key_binding(config.SHORTCUTS.PAUSE_AND_CAPTURE[1], "pause-and-capture", pause_and_capture)
 mp.add_key_binding(config.SHORTCUTS.SHOW_COMMANDS[1], "show-commands", show_commands)

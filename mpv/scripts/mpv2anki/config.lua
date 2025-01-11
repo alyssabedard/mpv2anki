@@ -55,8 +55,8 @@ local config = {
     -- Keyboard shortcuts
     -----------------------------------------------------------------------
     SHORTCUTS = {
-        CAPTURE = {'Shift+a', "Capture to Anki"},
         PAUSE_AND_CAPTURE = {"Shift+d", "Pause and capture to Anki"},
+        --CAPTURE = {'Shift+a', "Capture to Anki"},
         SHOW_COMMANDS = {'Shift+h', "Show all commands"},
     },
 }
