@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main  # or 'master' depending on your default branch name
 
       - name: Get version
         id: get_version
@@ -32,12 +35,13 @@ jobs:
           # Write back to file
           echo "$updated_content" > mpv/scripts/mpv2anki/metadata.lua
           
-          # Commit the updated metadata
+          # Commit and push to main branch
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git checkout master
           git add mpv/scripts/mpv2anki/metadata.lua
           git commit -m "Update metadata for version ${GITHUB_REF#refs/tags/}"
-          git push
+          git push origin master
 
       - name: Verify Metadata
         run: |
