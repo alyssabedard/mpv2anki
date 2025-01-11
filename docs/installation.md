@@ -12,10 +12,10 @@
 
 ### Default mpv Keybindings
 
-| Key       | Command | Description | 
-|-----------|---------|-------------|
+| Key       | Command                            | Description               | 
+|-----------|------------------------------------|---------------------------|
 | `Shift+d` | `script-binding pause-and-capture` | Pause and capture to Anki |
-| `Shift+h` | `script-binding show-commands` | Show all commands |
+| `Shift+h` | `script-binding show-commands`     | Show all commands         |
 
 > **Note**: You can customize these keybindings in your MPV configuration,
 > but make sure to check `main.lua` and `config.lua` to avoid conflicts with
@@ -24,8 +24,8 @@
 
 ### Makefile Commands
 
-| Command | Description                                                    | Notes |
-|---------|----------------------------------------------------------------|-------|
+| Command            | Description                                                    | Notes                                                                            |
+|--------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------|
 | `make sync-to-mpv` | Copy files to MPV configuration directory according to your OS | **WARNING**: Will replace your existing configuration files in the MPV directory |
-| `make help` | Display all available commands                                 | Shows descriptions for each command |
+| `make help`        | Display all available commands                                 | Shows descriptions for each command                                              |
 

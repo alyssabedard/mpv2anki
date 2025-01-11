@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-<img src="screenshots/demo.gif" width="1200" alt="Demo of MPV to Anki"/>
+<img src="docs/screenshots/demo.gif" width="1200" alt="Demo of MPV to Anki"/>
 💜
 </div>
 
@@ -70,12 +70,12 @@ More detailed documentation is **coming soon** for non-technical users
 
 ## Support & Contributing
 
-| Type | Description                                      |
-|------|--------------------------------------------------|
-|[Discussions](https://github.com/alyssabedard/mpv2anki/discussions) | Questions or feature requests                    |
-|[Issues](https://github.com/alyssabedard/mpv2anki/issues) | Bug reports                                      | 
-|[Contributing](https://github.com/alyssabedard/mpv2anki/fork) | Fork the repo and submit a PR                    |
-|Help Wanted | Need help with OS-specific documentation/testing |
+| Type                                                                | Description                                      |
+|---------------------------------------------------------------------|--------------------------------------------------|
+| [Discussions](https://github.com/alyssabedard/mpv2anki/discussions) | Questions or feature requests                    |
+| [Issues](https://github.com/alyssabedard/mpv2anki/issues)           | Bug reports                                      | 
+| [Contributing](https://github.com/alyssabedard/mpv2anki/fork)       | Fork the repo and submit a PR                    |
+| Help Wanted                                                         | Need help with OS-specific documentation/testing |
 
 ## Credits
 GIF: donghua (anime) 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_  |  _The Founder of Diabolism_  |  _The Master of Diabolism_) S01:E02

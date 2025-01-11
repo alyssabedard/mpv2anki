@@ -26,11 +26,13 @@ help:
 	@echo "  make \033[34mhelp\033[0m         	- Show this help message"
 
 # Warning: Will replace your input.conf and mpv.conf
+# Remove the @cp lines according to your needs
 sync-to-mpv:
 	@echo "Copying MPV configuration files to $(MPV_CONFIG_DIR)"
 	@mkdir -p $(MPV_CONFIG_DIR)
-	@cp -r scripts $(MPV_CONFIG_DIR)/
-	@cp input.conf $(MPV_CONFIG_DIR)/
-	@cp mpv.conf $(MPV_CONFIG_DIR)/
+	@mkdir -p $(MPV_CONFIG_DIR)/scripts
+	@cp -r mpv/scripts/* $(MPV_CONFIG_DIR)/scripts/
+	@cp mpv/input.conf $(MPV_CONFIG_DIR)/
+	@cp mpv/mpv.conf $(MPV_CONFIG_DIR)/
 	@echo "\033[32m✨Done✨!\033[0m "
 
