@@ -1,4 +1,3 @@
-# Changelog
 
 Initial release.
 

@@ -1,6 +1,6 @@
 # After pushing a tag (e.g., v1.0.0), GitHub Actions starts
 #   1. It checks out the code at the commit where the tag was created
-#   2. Creates the build package using the latest state (with updated metadata)
+#   2. Creates the build package
 
 name: Build mpv Script Package
 
@@ -34,6 +34,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
+          name: "mpv2anki ${{ github.ref_name }}"
           files: mpv2anki_${{ steps.get_version.outputs.VERSION }}.zip
           body_path: CHANGELOG.md
           generate_release_notes: true
