@@ -1,0 +1,63 @@
+# After pushing a  tag (e.g., v1.0.0), GitHub Actions starts
+#   1. It checks out the code at the commit where the tag was created
+#   2. Updates metadata.lua in the repo and creates a new commit
+#   3. Creates the build package using the latest state (with updated metadata)
+
+name: Build mpv Script Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Update Repository Metadata
+        run: |
+          # Read the existing metadata file
+          metadata_content=$(cat mpv/scripts/mpv2anki/metadata.lua)
+          
+          # Update only version and build_date while preserving other fields
+          updated_content=$(echo "$metadata_content" | sed -E "s/(version[[:space:]]*=[[:space:]]*[\"']).*([\"'])/\1${GITHUB_REF#refs/tags/}\2/" | sed -E "s/(build_date[[:space:]]*=[[:space:]]*[\"']).*([\"'])/\1$(date +%Y-%m-%d)\2/")
+          
+          # Write back to file
+          echo "$updated_content" > mpv/scripts/mpv2anki/metadata.lua
+          
+          # Commit the updated metadata
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add mpv/scripts/mpv2anki/metadata.lua
+          git commit -m "Update metadata for version ${GITHUB_REF#refs/tags/}"
+          git push
+
+      - name: Verify Metadata
+        run: |
+          echo "Verifying metadata.lua content:"
+          cat mpv/scripts/mpv2anki/metadata.lua
+
+      - name: Create Package
+        run: |
+          mkdir -p build/mpv/scripts
+          cp mpv/input.conf build/mpv/
+          cp mpv/mpv.conf build/mpv/
+          cp -r mpv/scripts/mpv2anki build/mpv/scripts/
+          cd build
+          zip -r ../mpv2anki_${GITHUB_REF#refs/tags/v}.zip mpv/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mpv2anki_${{ steps.get_version.outputs.VERSION }}.zip
+          body_path: CHANGELOG.md
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
