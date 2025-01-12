@@ -1,11 +1,13 @@
 <div align="center">
    <h1 style="font-family: monospace;">mpv2anki</h1>
-   💜
 </div>
 
+## Description
 A simple script to assist your language learning journey in any language by automatically capturing multimedia content from [mpv](https://mpv.io/) to [Anki](https://apps.ankiweb.net/).
 It extracts the current subtitles (target language and native/secondary language), corresponding audio,
 and screenshot when triggered, making it easy to create flashcards.
+
+_Need help? Want to raise an issue? Looking for documentation? See [Contributing & Support](#contributing--support)_
 
 ## Demo
 <div align="center"><br>
@@ -42,11 +44,11 @@ _Windows Status (2025-01-10): Currently debugging MPV script loading issues_
    2. [ ] Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`
 
 
-> **Note 1**: Currently, the audio extraction strictly follows subtitle 
+> **Note 1**: Currently, the audio extraction strictly follows subtitle
 > timing.
 
 > **Note 2**: Audio extraction currently only works with local video files.
-> For video streams I recommend using free tools like [Abs Player](https://chromewebstore.google.com/detail/asbplayer-language-learni/hkledmpjpaehamkiehglnbelcpdflcab) 
+> For video streams I recommend using free tools like [Abs Player](https://chromewebstore.google.com/detail/asbplayer-language-learni/hkledmpjpaehamkiehglnbelcpdflcab)
 > that work directly in the web browser.
 
 ## Requirements
