@@ -1,6 +1,6 @@
 <div align="center">
    <h1 style="font-family: monospace;">mpv2anki</h1>
-<a href="https://github.com/alyssabedard/mpv2anki/releases"><img src="https://img.shields.io/github/v/release/alyssabedard/mpv2anki?style=for-the-badge&labelColor=%231C1C1C&color=%23A692E3&logo=github" /></a>
+   <a href="https://github.com/alyssabedard/mpv2anki/releases"><img src="https://img.shields.io/github/v/release/alyssabedard/mpv2anki?style=for-the-badge&labelColor=%231C1C1C&color=%23A692E3&logo=github" /></a>
 </div>
 
 ## Description
@@ -8,20 +8,15 @@ A simple script to assist your language learning journey in any language by auto
 It extracts the current subtitles (target language and native/secondary language), corresponding audio,
 and screenshot when triggered, making it easy to create flashcards.
 
-_Need help? Want to raise an issue? Looking for documentation? See [Contributing & Support](#contributing--support)_
+
+> _Need help? Want to raise an issue? Looking for documentation? See [Contributing & Support](#contributing--support)_
+
 
 ## Demo
 <div align="center"><br>
    <img src="docs/screenshots/demo.gif" width="1000" alt="Demo of MPV to Anki"/>
 </div>
 
-
-## Important Notes
-
-**OS**  
-This script has been primarily tested on macOS.  I currently don't have access to a Linux and Windows machines for thorough testing.
-
-_Windows Status (2025-01-10): Currently debugging MPV script loading issues_
 
 ## Features
 
@@ -62,12 +57,6 @@ _Windows Status (2025-01-10): Currently debugging MPV script loading issues_
 > **Note**: _AnkiConnect add-on must be installed in Anki and Anki must be running while using this script._
 
 
-## Getting Started
-
-🚧 More detailed documentation is **coming soon** for non-technical language learners and will be available in the [docs](docs) folder.
-
-
-
 ## Contributing & Support
 
 | Type                                                                 | Description                                      |
@@ -77,6 +66,13 @@ _Windows Status (2025-01-10): Currently debugging MPV script loading issues_
 | [Discussions](https://github.com/alyssabedard/mpv2anki/discussions)  | Getting help and questions                       |
 | [Support](.github/SUPPORT.md)                                        | Support - Getting Started                        |
 | Help Wanted                                                          | Need help with OS-specific documentation/testing |
+
+🚧 More detailed documentation is **coming soon** for non-technical language learners and will be available in the [docs](docs) folder.
+
+**OS**  
+This script has been primarily tested on macOS.  I currently don't have access to a Linux and Windows machines for thorough testing.
+
+_Windows Status (2025-01-10): Currently debugging MPV script loading issues_
 
 ## Credits
 GIF: donghua (anime) 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_  |  _The Founder of Diabolism_  |  _The Master of Diabolism_) S01:E02
