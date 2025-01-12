@@ -1,5 +1,6 @@
 <div align="center">
    <h1 style="font-family: monospace;">mpv2anki</h1>
+<a href="https://github.com/alyssabedard/mpv2anki/releases"><img src="https://img.shields.io/github/v/release/alyssabedard/mpv2anki?style=for-the-badge&labelColor=%231C1C1C&color=%23A692E3&logo=github" /></a>
 </div>
 
 ## Description
