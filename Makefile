@@ -18,7 +18,9 @@ else
     endif
 endif
 
-.PHONY: help sync-to-mpv retag tag
+.PHONY: help sync-to-mpv \
+		retag tag \
+		play list open sync-and-play
 
 help:
 	@echo "=== [mpv2anki] Available commands: ==="
@@ -77,3 +79,25 @@ tag:
 	else \
 		echo "No version provided"; \
 	fi
+
+# Variable for MPV path
+MPV := /Applications/mpv.app/Contents/MacOS/mpv
+
+# Default video path I'm using for testing my script
+# Opens MPV with terminal - useful for debugging
+DEFAULT_VIDEO := "$(HOME)/Movies/TV Shows and Movies/全职高手 The King's Avatar/EP1 - The King's Avatar [g0029ctql3f].mp4"
+VIDEO_DIR := "$(HOME)/Movies/TV Shows and Movies/全职高手 The King's Avatar/"
+
+play:
+	$(MPV) $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
+
+# List available videos in VIDEO_DIR
+list:
+	ls $(VIDEO_DIR)
+
+# Open mpv and wait for drag and drop
+open:
+	open -a mpv
+
+
+sync-and-play: sync-to-mpv play
