@@ -24,12 +24,24 @@ jobs:
 
       - name: Create Package
         run: |
-          mkdir -p build/mpv/scripts
-          cp mpv/input.conf build/mpv/
-          cp mpv/mpv.conf build/mpv/
-          cp -r mpv/scripts/mpv2anki build/mpv/scripts/
+          VERSION=${GITHUB_REF#refs/tags/v}
+          DIR_NAME=mpv2anki_v${VERSION}
+          
+          # Create main directory structure
+          mkdir -p build/${DIR_NAME}/mpv/scripts build/${DIR_NAME}/mpv/script-opts
+          
+          # Copy MPV files
+          cp mpv/input.conf build/${DIR_NAME}/mpv/
+          cp mpv/mpv.conf build/${DIR_NAME}/mpv/
+          cp -r mpv/scripts/mpv2anki build/${DIR_NAME}/mpv/scripts/
+          cp -r mpv/script-opts/* build/${DIR_NAME}/mpv/script-opts/
+          
+          # Copy note types
+          cp -r docs/note_types/* build/${DIR_NAME}/
+          
+          # Create zip from build directory
           cd build
-          zip -r ../mpv2anki_${GITHUB_REF#refs/tags/v}.zip mpv/
+          zip -r ../${DIR_NAME}.zip ${DIR_NAME}/
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

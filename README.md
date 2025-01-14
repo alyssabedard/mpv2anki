@@ -1,6 +1,10 @@
 <div align="center">
-   <h1 style="font-family: monospace;">mpv2anki</h1>
-   <a href="https://github.com/alyssabedard/mpv2anki/releases"><img src="https://img.shields.io/github/v/release/alyssabedard/mpv2anki?style=for-the-badge&labelColor=%231C1C1C&color=%23A692E3&logo=github" /></a>
+<h1 style="font-family: monospace;">mpv2anki</h1>
+<a href="https://github.com/alyssabedard/mpv2anki/releases"><img src="https://img.shields.io/github/v/release/alyssabedard/mpv2anki?style=for-the-badge&labelColor=%231C1C1C&color=%23A692E3&logo=github" /></a>
+<br>   
+<div>
+<img src="docs/screenshots/demo3.png" width="1000" alt="Demo of MPV to Anki"/>
+</div>   
 </div>
 
 ## Description
@@ -12,33 +16,22 @@ and screenshot when triggered, making it easy to create flashcards.
 > _Need help? Want to raise an issue? Looking for documentation? See [Contributing & Support](#contributing--support)_
 
 
-## Demo
-<div align="center"><br>
-   <img src="docs/screenshots/demo.gif" width="1000" alt="Demo of MPV to Anki"/>
-</div>
-
-
 ## Features
 
 1. [x] Automatically create Anki cards with extracted content
    1. [x] Extract current subtitle text from MPV
    2. [x] Capture audio segment corresponding to subtitle timing
    3. [x] Take screenshots at current playback position
-
+2. [x] Field mapping configurations 
 
 ### Planned Features
 
-1. [ ] **Custom Audio Segment Selection** _(See Note 1)_
-   1. [ ] Set custom start and end points for audio clips independent of subtitle timing
-2. [ ] **Documentation**
-   1. [ ] for non-technical users
-   2. [ ] for IINA set-up
-3. [ ] **Audio extraction** _(See Note 2)_
-   1. [ ] for URL/Video stream support (platforms supported by [yt-dlp](https://github.com/yt-dlp/yt-dlp))
-4. [ ] **Field Mapping**
-   1. [ ] Simplified field mapping configuration (no code editing required) for non-technical users
-   2. [ ] Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`
-
+| Feature                        | Sub-feature                                                                                  | Notes |
+|--------------------------------|----------------------------------------------------------------------------------------------|-------|
+| Custom Audio Segment Selection | Set custom start and end points for audio clips independent of subtitle timing               | 1     |
+| Documentation                  | IINA set-up                                                                                  |       |
+| Audio extraction               | URL/Video stream support (platforms supported by [yt-dlp](https://github.com/yt-dlp/yt-dlp)) | 2     |
+| Field Mapping                  | Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`                                     |       |
 
 > **Note 1**: Currently, the audio extraction strictly follows subtitle
 > timing.
@@ -57,6 +50,12 @@ and screenshot when triggered, making it easy to create flashcards.
 > **Note**: _AnkiConnect add-on must be installed in Anki and Anki must be running while using this script._
 
 
+## Demo
+<div align="center"><br>
+   <img src="docs/screenshots/demo.gif" width="1000" alt="Demo of MPV to Anki"/>
+</div>
+
+
 ## Contributing & Support
 
 | Type                                                                 | Description                                      |
@@ -64,18 +63,13 @@ and screenshot when triggered, making it easy to create flashcards.
 | [Issues & Requests](https://github.com/alyssabedard/mpv2anki/issues) | Bug reports or feature requests                  | 
 | [Contributing](.github/CONTRIBUTING.md)                              | Fork the repo and submit a PR                    |
 | [Discussions](https://github.com/alyssabedard/mpv2anki/discussions)  | Getting help and questions                       |
-| [Support](.github/SUPPORT.md)                                        | Support - Getting Started                        |
+| [Support](.github/SUPPORT.md)                                        | Support                                          |
+| [Quick Start Guide](docs/quick_start_guide.md)                       | Quick Start Guide                                |
+| [Technical documentation](docs/dev)                                  | Technical documentation                          |
 | Help Wanted                                                          | Need help with OS-specific documentation/testing |
 
-🚧 More detailed documentation is **coming soon** for non-technical language learners and will be available in the [docs](docs) folder.
+_This script has been primarily tested on macOS and Windows.  I currently don't have 
+access to a Linux machine for thorough testing._
 
-**OS**  
-This script has been primarily tested on macOS.  I currently don't have access to a Linux and Windows machines for thorough testing.
 
-_Windows Status (2025-01-10): Currently debugging MPV script loading issues_
-
-## Credits
-GIF: donghua (anime) 魔道祖师 (_Mo Dao Zu Shi_  |  _Grandmaster of Demonic Cultivation_  |  _The Founder of Diabolism_  |  _The Master of Diabolism_) S01:E02
-- [My Anime List (MAL)](https://myanimelist.net/anime/37208/Mo_Dao_Zu_Shi)
-- [Douban 豆瓣](https://movie.douban.com/subject/27015848/)
 
