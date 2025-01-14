@@ -71,5 +71,11 @@ and screenshot when triggered, making it easy to create flashcards.
 _This script has been primarily tested on macOS and Windows.  I currently don't have 
 access to a Linux machine for thorough testing._
 
+## Acknowledgements
+
+While not a direct fork, this project acknowledges [mpv2anki](https://github.com/SenneH/mpv2anki), 
+an earlier Linux-specific implementation with similar goals that appears to be no longer maintained.
+
+
 
 
