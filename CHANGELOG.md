@@ -1,13 +1,14 @@
-# Changelog
 
-Initial release.
-
-## [1.0.0] - 2025-01-11
+## [1.1.0] - 2025-01-14
 ### Added
-* Automatically create Anki cards with extracted content
-  * Extract current subtitle text from MPV
-  * Capture audio segment corresponding to subtitle timing
-  * Take screenshots at current playback position
+- Simplified field mapping configuration with a .conf file at`script-opts/mvp2anki.conf`
+- More documentation
+- A basic Anki Note type matching the script Anki fields
+ 
+### Changed
+- mpv configurations `input.conf` and `mpv.conf `
+- Configurations inside `config.lua`
+- Makefile commands
 
 ### Fixed
-- macOS: mpv script loading issues
+- Windows: mpv script loading issues
