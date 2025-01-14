@@ -27,21 +27,32 @@ jobs:
           VERSION=${GITHUB_REF#refs/tags/v}
           DIR_NAME=mpv2anki_v${VERSION}
           
+          echo "Creating package for version: ${VERSION}"
+          echo "Directory name will be: ${DIR_NAME}"
+          
           # Create main directory structure
           mkdir -p build/${DIR_NAME}/mpv/scripts build/${DIR_NAME}/mpv/script-opts
+          echo "Created directory structure"
           
-          # Copy MPV files
-          cp mpv/input.conf build/${DIR_NAME}/mpv/
-          cp mpv/mpv.conf build/${DIR_NAME}/mpv/
-          cp -r mpv/scripts/mpv2anki build/${DIR_NAME}/mpv/scripts/
-          cp -r mpv/script-opts/* build/${DIR_NAME}/mpv/script-opts/
+          # Copy MPV files with verbose and error checking
+          cp -v mpv/input.conf build/${DIR_NAME}/mpv/ || echo "Warning: input.conf copy failed"
+          cp -v mpv/mpv.conf build/${DIR_NAME}/mpv/ || echo "Warning: mpv.conf copy failed"
+          cp -rv mpv/scripts/mpv2anki build/${DIR_NAME}/mpv/scripts/ || echo "Warning: scripts copy failed"
+          cp -rv mpv/script-opts/* build/${DIR_NAME}/mpv/script-opts/ || echo "Warning: script-opts copy failed"
           
-          # Copy note types
-          cp -r docs/note_types/* build/${DIR_NAME}/
+          echo "Checking if docs/note_types exists..."
+          if [ -d "docs/note_types" ]; then
+              # Copy note types
+              cp -rv docs/note_types/* build/${DIR_NAME}/ || echo "Warning: note_types copy failed"
+          else
+              echo "docs/note_types directory not found"
+          fi
           
-          # Create zip from build directory
+          echo "Creating zip file..."
           cd build
-          zip -r ../${DIR_NAME}.zip ${DIR_NAME}/
+          zip -rv ../${DIR_NAME}.zip ${DIR_NAME}/
+          
+          echo "Build process completed"
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
