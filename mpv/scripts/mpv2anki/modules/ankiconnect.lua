@@ -51,12 +51,13 @@ function ankiconnect.send_to_anki(note_data)
 
                     [config.ANKI.FIELDS.SUBTITLE1] = note_data.sub1 or "",
                     [config.ANKI.FIELDS.SUBTITLE2] = note_data.sub2 or "",
-                    [config.ANKI.FIELDS.SCREENSHOT] = string.format('<img src="%s">', note_data.screenshot_filename), -- HTML formatting because it would just show the filename as text instead 
-                    -- [config.ANKI.FIELDS.AUDIO] = string.format('[sound:%s]', note_data.audio_filename),
-                    [config.ANKI.FIELDS.AUDIO] = note_data.audio_filename ~= "" and string.format('[sound:%s]', note_data.audio_filename) or nil,
-                    [config.ANKI.FIELDS.SUBTITLE1_EXTRA] = note_data.sub1 or "",
-                    [config.ANKI.FIELDS.IS_SENTENCE_CARD] = "x",
-                    --[config.ANKI.FIELDS.SOURCE] = "Some source... "
+                    [config.ANKI.FIELDS.SCREENSHOT] = string.format('<img src="%s">', note_data.screenshot_filename), -- HTML formatting because it would just show the filename as text instead
+                        [config.ANKI.FIELDS.AUDIO] = note_data.audio_filename ~= "" and string.format('[sound:%s]', note_data.audio_filename) or nil,
+                    -- ******** ADDITIONAL FIELDS **********
+                    -- Make modifications inside script-opts/mpv2anki.conf and modules/config.lua !!!
+                    --[config.ANKI.FIELDS.SUBTITLE1_EXTRA] = note_data.sub1 or "",
+                    --[config.ANKI.FIELDS.IS_SENTENCE_CARD] = "x",
+                    --[config.ANKI.FIELDS.SOURCE] = ""
                 },
                 tags = config.ANKI.TAGS or {}
             }

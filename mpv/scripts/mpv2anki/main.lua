@@ -16,6 +16,8 @@
     - Screenshots and subtitles: mpv has built-in command → use mp.commandv and mp.get_property
     - Audio extraction: needs external tool (ffmpeg) → use mp.command_native with subprocess
     Read mpv documentation: https://mpv.io/manual/stable/#lua-scripting
+    TODO:
+    - More error handling
 ]]--
 -----------------------------------------------------------------------
 
@@ -135,5 +137,20 @@ end
     if you have another scripts and binding with the same name it might create a conflict !
 ]]
 --mp.add_key_binding(config.SHORTCUTS.CAPTURE[1], "capture-to-anki", capture_to_anki) -- To implement
-mp.add_key_binding(config.SHORTCUTS.PAUSE_AND_CAPTURE[1], "pause-and-capture", pause_and_capture)
-mp.add_key_binding(config.SHORTCUTS.SHOW_COMMANDS[1], "show-commands", show_commands)
+--mp.add_key_binding(config.SHORTCUTS.PAUSE_AND_CAPTURE[1], "pause-and-capture", pause_and_capture)
+--mp.add_key_binding(config.SHORTCUTS.SHOW_COMMANDS[1], "show-commands", show_commands)
+local function setup_keybindings()
+    for _, binding in pairs({
+        {config.SHORTCUTS.PAUSE_AND_CAPTURE[1], "pause-and-capture", pause_and_capture},
+        {config.SHORTCUTS.SHOW_COMMANDS[1], "show-commands", show_commands}
+    }) do
+        if binding[1] then
+            mp.add_key_binding(binding[1], binding[2], binding[3])
+        else
+            msg.error(string.format("Missing keybinding configuration for %s", binding[2]))
+        end
+    end
+end
+
+setup_keybindings()
+

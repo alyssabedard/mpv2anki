@@ -1,3 +1,13 @@
+# Set variable for mpv path (not config)
+MPV := /Applications/mpv.app/Contents/MacOS/mpv
+
+# Set video dir and video path for testing
+VIDEO_DIR := "/Users/alyssabedard/Movies/TV\ Shows\ and\ Movies/Test/"
+DEFAULT_VIDEO := "$(VIDEO_DIR)modaozushi.mp4"
+
+
+
+# Set mpv config directory path
 # Check if the operating system is Windows
 ifeq ($(OS),Windows_NT)
     # If Windows, set MPV config directory to %APPDATA%/mpv
@@ -18,14 +28,24 @@ else
     endif
 endif
 
-.PHONY: help sync-to-mpv retag tag
+.PHONY: help sync-to-mpv \
+		retag tag \
+		play list open sync-and-play
 
 help:
 	@echo "=== [mpv2anki] Available commands: ==="
 	@echo "  make \033[34msync-to-mpv\033[0m   	- Copy files to MPV configuration files. \033[31mWARNING: Will replace your conf files!!!!\033[0m"
-	@echo "  make \033[34mhelp\033[0m         	- Show this help message"
+	@echo ""
+	@echo "  make \033[34mplay\033[0m         	- Open mpv from the terminal with debugging with a video for testing"
+	@echo "  make \033[34mlist\033[0m         	- List available videos in VIDEO_DIR"
+	@echo "  make \033[34mopen\033[0m         	- Open mpv and wait for drag and drop"
+	@echo "  make \033[34msync-and-play\033[0m  - sync + play"
+	@echo ""
 	@echo "  make \033[34mtag\033[0m         	- Create a new tag (GitHub workflows)"
 	@echo "  make \033[34mretag\033[0m         	- Delete and recreate a tag (GitHub workflows)"
+	@echo ""
+	@echo "  make \033[34mhelp\033[0m         	- Show this help message"
+
 
 # Warning: Will replace your input.conf and mpv.conf
 # Remove the @cp lines according to your needs
@@ -33,11 +53,29 @@ sync-to-mpv:
 	@echo "Copying MPV configuration files to $(MPV_CONFIG_DIR)"
 	@mkdir -p $(MPV_CONFIG_DIR)
 	@mkdir -p $(MPV_CONFIG_DIR)/scripts
+	@mkdir -p $(MPV_CONFIG_DIR)/script-opts
 	@cp -r mpv/scripts/* $(MPV_CONFIG_DIR)/scripts/
+	@cp -r mpv/script-opts/* $(MPV_CONFIG_DIR)/script-opts/
 	@cp mpv/input.conf $(MPV_CONFIG_DIR)/
 	@cp mpv/mpv.conf $(MPV_CONFIG_DIR)/
 	@echo "\033[32m✨Done✨!\033[0m "
 
+
+# Opens MPV with terminal - useful for debugging
+# $(MPV) $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
+#$(MPV) --msg-level=mpv2anki=debug $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
+play:
+	$(MPV) --msg-level=mpv2anki=debug $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
+
+# List available videos in VIDEO_DIR
+list:
+	ls $(VIDEO_DIR)
+
+# Open mpv and wait for drag and drop
+open:
+	open -a mpv
+
+sync-and-play: sync-to-mpv play
 
 
 # Command to delete and recreate a tag
@@ -77,3 +115,6 @@ tag:
 	else \
 		echo "No version provided"; \
 	fi
+
+
+
