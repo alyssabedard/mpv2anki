@@ -41,12 +41,13 @@ jobs:
           cp -rv mpv/scripts/mpv2anki build/${DIR_NAME}/mpv/scripts/ || echo "Warning: scripts copy failed"
           cp -rv mpv/script-opts/* build/${DIR_NAME}/mpv/script-opts/ || echo "Warning: script-opts copy failed"
 
-          echo "Checking if docs/note_types exists..."
-          if [ -d "docs/note_types" ]; then
+          echo "Checking if note_types exists..."
+          mkdir -p build/${DIR_NAME}/note_types
+          if [ -d "docs/note_types/basic" ]; then
               # Copy note types
-              cp -rv docs/note_types/* build/${DIR_NAME}/ || echo "Warning: note_types copy failed"
+              cp -rv "docs/note_types/basic/Sentence Mining.apkg" build/${DIR_NAME}/note_types/ || echo "Warning: note_types copy failed"
           else
-              echo "docs/note_types directory not found"
+              echo "docs/note_types/basic directory not found"
           fi
 
           echo "Creating zip file..."
@@ -54,10 +55,20 @@ jobs:
           zip -rv ../${DIR_NAME}.zip ${DIR_NAME}/
           cd ..
 
-          # Set the zip file path as an output
+          ls -la *.zip  # Debug: List zip files
           echo "PACKAGE_PATH=${DIR_NAME}.zip" >> $GITHUB_OUTPUT
 
           echo "Build process completed"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: mpv2anki v${{ steps.get_version.outputs.VERSION }}
+          files: ${{ steps.create_package.outputs.PACKAGE_PATH }}
+          body_path: CHANGELOG.md
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
