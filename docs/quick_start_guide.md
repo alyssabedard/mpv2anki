@@ -195,28 +195,34 @@ The files should follow this structure and naming:
 Now that mpv and ffmpeg are properly installed. Let's change 
 **mpv2anki** config files. (OS, Anki Fields and mpv key binding set up)
 
-1. Open `script-opts/mpv2anki.conf` and configure the following:
-   - Set your operating system (`system_type`):
-     - `windows`
-     - `macos`
-     - `linux`
+#### 1. Open `script-opts/mpv2anki.conf` and configure the following
+_The **mpv** and **ffmpeg** paths are included in the `config.lua` script and should
+recognize your OS. If for some reason your paths are different change
+them inside  `mpv2anki.conf`_
 
-   - Set FFmpeg path (`ffmpeg_path`):
-     - Windows: typically `C:\Program Files\mpv\ffmpeg.exe` (`C:\\Program Files\\mpv\\ffmpeg.exe`)
-     - macOS: typically `/usr/local/bin/ffmpeg`
-     - Linux: typically `/usr/bin/ffmpeg`
+**(Optional)  Set your operating system (`system_type`):**
+- `windows`
+- `macos`
+- `linux`
 
-   - Configure Anki settings:
-     - `anki_username`: Your [Anki profile](https://docs.ankiweb.net/profiles.html) name
-     - `deck_name`: Your target [deck](https://docs.ankiweb.net/getting-started.html#decks)
-     - `note_type`: Card [type](https://docs.ankiweb.net/getting-started.html#note-types) (default: mpv2anki)
-     - [Field](https://docs.ankiweb.net/getting-started.html#notes--fields) mappings for your cards
-       - For additional fields beyond the default ones, modify:
-         - `mpv/scripts/mpv2anki/modules/ankiconnect.lua`
-         - `mpv/scripts/mpv2anki/config.lua`
-         - `mpv/scripts/mpv2anki/script-opts/mpv2anki.conf`
+**(Optional) Set FFmpeg path (`ffmpeg_path`):**
+- Windows: typically `C:\Program Files\mpv\ffmpeg.exe` (`C:\\Program Files\\mpv\\ffmpeg.exe`)
+- macOS: typically `/usr/local/bin/ffmpeg`
+- Linux: typically `/usr/bin/ffmpeg`
+
+**Configure Anki settings:**  
+_I recommend leaving the default values and importing the provided anki note type 
+first to make sure **mpv** and **mpv2anki** are installed properly_
+- `anki_username`: Your [Anki profile](https://docs.ankiweb.net/profiles.html) name
+- `deck_name`: Your target [deck](https://docs.ankiweb.net/getting-started.html#decks)
+- `note_type`: Card [type](https://docs.ankiweb.net/getting-started.html#note-types) (default: mpv2anki)
+- [Field](https://docs.ankiweb.net/getting-started.html#notes--fields) mappings for your cards
+  - For additional fields beyond the default ones, modify:
+    - `mpv/scripts/mpv2anki/modules/ankiconnect.lua`
+    - `mpv/scripts/mpv2anki/config.lua`
+    - `mpv/scripts/mpv2anki/script-opts/mpv2anki.conf`
         
-2. Make sure AnkiConnect is:
+#### 2. Make sure AnkiConnect is:
   - Installed in Anki
   - Anki is running when you use the script
   - Default port (8765) is not blocked

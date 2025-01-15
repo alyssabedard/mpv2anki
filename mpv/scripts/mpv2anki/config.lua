@@ -53,8 +53,6 @@ end
 local function get_os_specific_paths()
     local config = read_config_file()
     local username = config.anki_username or "User 1"
-
-    -- Get home directory based on OS
     local home = os.getenv('HOME') or os.getenv('USERPROFILE')
 
     -- Detect OS
@@ -66,7 +64,7 @@ local function get_os_specific_paths()
         windows = {
             ffmpeg_path = config.ffmpeg_path or 'C:\\Program Files\\mpv\\ffmpeg.exe',
             media_path = string.format('%s\\Anki2\\%s\\collection.media\\',
-                    os.getenv('APPDATA'), username or '')
+                    os.getenv('APPDATA') or '', username or '')
         },
         macos = {
             ffmpeg_path = config.ffmpeg_path or '/usr/local/bin/ffmpeg',
