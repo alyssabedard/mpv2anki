@@ -53,7 +53,9 @@ end
 local function get_os_specific_paths()
     local config = read_config_file()
     local username = config.anki_username or "User 1"
-    local home = os.getenv('HOME')
+
+    -- Get home directory based on OS
+    local home = os.getenv('HOME') or os.getenv('USERPROFILE')
 
     -- Detect OS
     local os_name = package.config:sub(1,1) == '\\' and 'windows' or

@@ -18,6 +18,7 @@ _Read [Installation](#installation) for **mpv** and **ffmpeg**_
 - [ffmpeg](https://ffmpeg.org/) - _a suite of libraries to handle multimedia files_
 - [Anki](https://apps.ankiweb.net/) - _powerful [SRS](https://en.wikipedia.org/wiki/Spaced_repetition) flashcard app_
 - [AnkiConnect](https://ankiweb.net/shared/info/2055492159) - _Anki add-on_
+- Optional: you might need [yt-dlp](https://github.com/yt-dlp/yt-dlp) for streaming videos. **mpv2anki** main implementation is for videos on your local machine.
 
 > **Note**: _AnkiConnect add-on must be installed in Anki and 
 > Anki must be running while using this script._

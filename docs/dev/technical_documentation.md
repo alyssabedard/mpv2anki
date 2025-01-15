@@ -66,6 +66,15 @@ To test MPV with terminal debugging:
 2. Debug messages will be visible in the terminal
 3. Use `--msg-level=mpv2anki=debug` flag for detailed logging
 
+Windows
+```
+mpv --msg-level=mpv2anki=debug "C:\Users\YOUR_VIDEO_PATH.mp4"
+```
+macOS
+```
+mpv --msg-level=mpv2anki=debug "/Users/Users\YOUR_VIDEO_PATH.mp4"
+```
+
 ### Safety Considerations
 
 1. **Before Running `sync-to-mpv`**:
