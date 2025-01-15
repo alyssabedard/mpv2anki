@@ -62,9 +62,9 @@ local function get_os_specific_paths()
     -- Set paths based on OS
     local paths = {
         windows = {
-            ffmpeg_path = config.ffmpeg_path or 'C:\\mpv\\ffmpeg.exe',
+            ffmpeg_path = config.ffmpeg_path or 'C:\\Program Files\\mpv\\ffmpeg.exe',
             media_path = string.format('%s\\Anki2\\%s\\collection.media\\',
-                    os.getenv('APPDATA') or '', username)
+                    os.getenv('APPDATA'), username or '')
         },
         macos = {
             ffmpeg_path = config.ffmpeg_path or '/usr/local/bin/ffmpeg',

@@ -1,6 +1,8 @@
-# Set variable for mpv path (not config)
+# Set variable for mpv path (not config), macos, linux and windows respectively
 MPV := /Applications/mpv.app/Contents/MacOS/mpv
-
+#MPV := /usr/bin/mpv
+#MPV := "C:\Program Files\mpv\mpv.exe"
+#MPV := "C:/Program Files/mpv/mpv.exe"
 # Set video dir and video path for testing
 VIDEO_DIR := "/Users/alyssabedard/Movies/TV\ Shows\ and\ Movies/Test/"
 DEFAULT_VIDEO := "$(VIDEO_DIR)modaozushi.mp4"

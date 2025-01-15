@@ -9,10 +9,11 @@
 6. Open a video with MPV
 7. Use Shift+d to create cards (when paused at subtitles)
 
+
 > ⚠️ **Note:** Restart MPV after making any changes to configuration files or scripts for the changes to take effect.
 
 ## Requirements
-(all open-source)
+_Read [Installation](#installation) for **mpv** and **ffmpeg**_
 - [mpv](https://mpv.io/) (or any software built on mpv like [IINA](https://iina.io/) (MacOS)) - _cross-platform media player_
 - [ffmpeg](https://ffmpeg.org/) - _a suite of libraries to handle multimedia files_
 - [Anki](https://apps.ankiweb.net/) - _powerful [SRS](https://en.wikipedia.org/wiki/Spaced_repetition) flashcard app_
@@ -26,16 +27,147 @@
 
 ## Installation
 
-### 1. Directory Setup
+When installing mpv, you'll need to complete two separate manual steps. 
 
-Copy the files to your MPV configuration directory based on your operating system:
+First, you need to install the MPV video player on your system - unlike 
+standard software installations, MPV requires you to manually place its 
+files/app in the correct system location and sometimes set proper permissions. 
+Second, you need to place **mpv2anki** custom MPV **configuration file** (`mpv.conf`, `input.conf`, `scripts/` and `script-opts/`) in a different 
+location that tells MPV how to work with our specific scripts. This config file 
+is separate from the MPV installation and goes in your system's configuration 
+directory. Both steps are manual because MPV is designed to be flexible and 
+doesn't come with an automatic installer.
 
-| Operating System | Configuration Path |
-|-----------------|-------------------|
-| Windows | `%APPDATA%/mpv/` |
-| macOS | `~/.config/mpv/` |
-| Linux | `~/.config/mpv/` |
 
+## 1. Install MPV Player and ffmpeg
+
+### Windows
+1. Download MPV player from [mpv.io](https://mpv.io)
+2. Under "Windows builds by shinchiro (git)" (or any other build), download:
+`mpv-x86_64-[date]-git-[hash].7z` and `ffmpeg-x86_64-git-[hash].7z`
+Note: Choose the regular version, not the ones marked 'dev' or 'v3'
+3. Place the MPV files and `ffmpeg.exe` in `C:\Program Files\mpv` (go to `C:\Program Files` and create a `mpv` folder)
+4. Add MPV to your system PATH:
+    - Open "Environment Variables" (search in Windows start menu)
+    - Under "System Variables", find and click "Path"
+    - Click "New" and add `C:\Program Files\mpv`
+    - Click OK to save
+
+### macOS
+1. Install MPV  
+Using Homebrew
+    ```bash
+    brew install mpv
+    ```
+    Or download MPV player from [mpv.io](https://mpv.io). 
+    Store inside the `Applications` folder
+    ```
+    /Applications/mpv.app
+    ```
+2. Install ffmpeg
+    ```
+    brew install ffmpeg
+    ```
+
+
+### Linux
+1. Install MPV using your package manager (need confirmation, I haven't personally test it):
+    ```bash
+    # Ubuntu/Debian
+    sudo apt install mpv
+    
+    # Fedora
+    sudo dnf install mpv
+    
+    # Arch
+    sudo pacman -S mpv
+    ```
+2. Install ffmpeg
+
+    Use your distribution's package manager:
+    
+    For Ubuntu/Debian:
+    ```bash
+    sudo apt update
+    sudo apt install ffmpeg
+    ```
+    
+    For Fedora:
+    ```bash
+    sudo dnf install ffmpeg
+    ```
+    
+    For Arch Linux:
+    ```bash
+    sudo pacman -S ffmpeg
+    ```
+
+### Verification
+After installation on any system, verify it's working by running:
+```bash
+ffmpeg -version
+```
+
+
+## 2. Configure MPV
+
+The `mpv.conf` file in this repository contains custom settings for **mpv2anki**. 
+You'll need to place it in:
+
+### Windows
+`Windows` + `r`
+```
+%APPDATA%
+```
+Create a mpv folder following this path:
+```
+%APPDATA%\mpv\
+```
+_Note_: Windows uses `AppData` for config which typically
+expands to `C:\Users\YourUsername\AppData\Roaming\mpv\`
+
+
+### macOS
+When in Finder:
+- `Finder` > `Go` > `Go to Folder...`
+- Shortcut : `cmd` + `shift` + `g` 
+```
+~/.config/
+```
+Create a mpv folder following this path:
+```
+~/.config/mpv/
+```
+
+### Linux
+```
+~/.config/
+```
+Create a mpv folder following this path:
+```
+~/.config/mpv/
+```
+
+### Summary
+
+| OS | MPV Application Location                   | Config File Location |
+|----------|--------------------------------------------|-------------------|
+| Windows | `C:\Program Files\mpv`                     | `%APPDATA%\mpv\mpv.conf` |
+| macOS (Homebrew) | `/usr/local/bin/mpv`                       | `~/.config/mpv/mpv.conf` |
+| macOS (Manual) | Finder: `/Applications/mpv.app` terminal: `/Applications/mpv.app/Contents/MacOS/mpv` | `~/.config/mpv/mpv.conf` |
+| Linux | `/usr/bin/mpv`                             | `~/.config/mpv/mpv.conf` |
+
+Notes:
+- macOS has two common locations depending on installation method:
+  - Homebrew installs to `/usr/local/bin/mpv`
+  - Manual installation goes to `/Applications/mpv.app` (drag and drop file to `Applications` folder)
+- The config file location stays the same regardless of how MPV is installed on macOS
+- Windows config typically expands to `C:\Users\YourUsername\AppData\Roaming\mpv\`
+- Windows mpv path needs to be declared in system PATH
+  
+
+
+### Files structure inside `mpv/`
 The files should follow this structure and naming:
 ```
 ├── mpv
@@ -58,43 +190,45 @@ The files should follow this structure and naming:
 │               └── views.lua
 ```
 
-### 2. Configuration
+## 3. mpv2anki Configurations
+Now that mpv and ffmpeg are properly installed. Let's change 
+**mpv2anki** config files. (OS, Anki Fields and mpv key binding set up)
 
-1. Open `script-opts/mpv2anki.conf` and configure:
-  - Set your operating system (`system_type`):
-    - `windows`
-    - `macos`
-    - `linux`
+1. Open `script-opts/mpv2anki.conf` and configure the following:
+   - Set your operating system (`system_type`):
+     - `windows`
+     - `macos`
+     - `linux`
 
-  - Set FFmpeg path (`ffmpeg_path`):
-    - Windows: typically `C:/ffmpeg/bin/ffmpeg.exe`
-    - macOS: typically `/usr/local/bin/ffmpeg`
-    - Linux: typically `/usr/bin/ffmpeg`
+   - Set FFmpeg path (`ffmpeg_path`):
+     - Windows: typically `C:\Program Files\mpv\ffmpeg.exe` (`C:\\Program Files\\mpv\\ffmpeg.exe`)
+     - macOS: typically `/usr/local/bin/ffmpeg`
+     - Linux: typically `/usr/bin/ffmpeg`
 
-  - Configure Anki settings:
-    - `anki_username`: Your [Anki profile](https://docs.ankiweb.net/profiles.html) name
-    - `deck_name`: Your target [deck](https://docs.ankiweb.net/getting-started.html#decks)
-    - `note_type`: Card [type](https://docs.ankiweb.net/getting-started.html#note-types) (default: mpv2anki)
-    - [Field](https://docs.ankiweb.net/getting-started.html#notes--fields) mappings for your cards
-      - For additional fields beyond the default ones, modify:
-        - `mpv/scripts/mpv2anki/modules/ankiconnect.lua`
-        - `mpv/scripts/mpv2anki/config.lua`
-        - `mpv/scripts/mpv2anki/script-opts/mpv2anki.conf`
+   - Configure Anki settings:
+     - `anki_username`: Your [Anki profile](https://docs.ankiweb.net/profiles.html) name
+     - `deck_name`: Your target [deck](https://docs.ankiweb.net/getting-started.html#decks)
+     - `note_type`: Card [type](https://docs.ankiweb.net/getting-started.html#note-types) (default: mpv2anki)
+     - [Field](https://docs.ankiweb.net/getting-started.html#notes--fields) mappings for your cards
+       - For additional fields beyond the default ones, modify:
+         - `mpv/scripts/mpv2anki/modules/ankiconnect.lua`
+         - `mpv/scripts/mpv2anki/config.lua`
+         - `mpv/scripts/mpv2anki/script-opts/mpv2anki.conf`
         
 2. Make sure AnkiConnect is:
   - Installed in Anki
   - Anki is running when you use the script
   - Default port (8765) is not blocked
 
-### 3. Anki Note Type
+## 4. Add the mpv2anki Note Type
 Import the mpv2anki note type in Anki just to get the script working.
 You can change the script and Note Type later according to your preferences.
 1. Download the [Sentence Mining.apkg](note_types/basic) note type
 2. Open Anki
-3. File → Import → select the downloaded `Sentence Mining.apkg`
+3. File → Import → select the downloaded `Sentence Mining.apkg` (or double-click the actual file `Sentence Mining.apkg`)
 
 
-## Usage
+## 5. Usage
 1. Start Anki
 2. Open a video with MPV
 3. Use the keyboard shortcuts to create cards
@@ -113,7 +247,7 @@ coming in a future update.
 
 You can customize these shortcuts by editing the values in `script-opts/mpv2anki.conf` or `input.conf`.
 
-## Card Fields
+### Card Fields
 
 The script creates cards with:
 - Sentence (subtitle at capture time)
@@ -133,7 +267,7 @@ field_screenshot=Screenshot
 - `mpv/scripts/mpv2anki/config.lua` for field configurations
 
 
-## Media Settings
+### Media Settings
 
 Default formats:
 - Screenshots: JPG
@@ -145,20 +279,21 @@ format_image=jpg
 format_audio=mp3
 ```
 
-## Troubleshooting
+
+# Troubleshooting
 
 1. **FFmpeg Path Issues**
-  - Verify FFmpeg is installed
-  - Check the path in configuration matches your installation
-  - Try using full path to FFmpeg executable
+   - Verify FFmpeg is installed
+   - Check the path in configuration matches your installation
+   - Try using full path to FFmpeg executable
 2. **AnkiConnect Issues**
-  - Ensure Anki is running
-  - Check if port 8765 is available
-  - Verify AnkiConnect add-on is installed
+   - Ensure Anki is running
+   - Check if port 8765 is available
+   - Verify AnkiConnect add-on is installed
 3. **mpv Configuration**
-  - Verify files are in correct directories 
-  - Check file permissions
-  - Ensure configuration paths match your system 
+   - Verify files and mpv are in correct directories 
+   - Check file permissions
+   - Ensure configuration paths match your system 
 
 ## Need Help?
 
@@ -182,10 +317,19 @@ For bug report or feature request
 
 Please check this [folder](screenshots/troubleshooting) for more screenshots.
 
+#### macOS
+
+#### macOS - mpv media player
+![example](screenshots/troubleshooting/macos-mpv-app-path.png)
+
+#### macOS - mpv config files
 ![example](screenshots/troubleshooting/macos-mpv-config.png)
 
-![example 2](screenshots/troubleshooting/windows-mpv-build.png)
+#### Windows - mpv media player + ffmpeg.exe
+(French Canadian Settings, `Programmes` = `Program Files`)_
+![example](screenshots/troubleshooting/windows-mpv-exe-path.png)
 
+#### Windows - mpv config files
 ![example 2](screenshots/troubleshooting/windows-mpv-config.png)
 
 
