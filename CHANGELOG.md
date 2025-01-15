@@ -1,14 +1,11 @@
 
-## [1.1.0] - 2025-01-14
-### Added
-- Simplified field mapping configuration with a .conf file at`script-opts/mvp2anki.conf`
-- More documentation
-- A basic Anki Note type matching the script Anki fields
+## [1.2.0] - 2025-01-15
  
 ### Changed
-- mpv configurations `input.conf` and `mpv.conf `
+- mpv2anki.conf
 - Configurations inside `config.lua`
 - Makefile commands
+- Documentations
 
 ### Fixed
-- Windows: mpv script loading issues
+- Windows: path issues
