@@ -1,6 +1,6 @@
 return {
-    version = 'v1.1.0',
-    build_date = '2025-01-14',
+    version = 'v1.2.0',
+    build_date = '2025-01-15',
     script_name = 'mpv2anki',
     min_mpv_version = '0.39.0',
     min_anki_version = '24.11',
