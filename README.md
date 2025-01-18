@@ -28,10 +28,11 @@ and screenshot when triggered, making it easy to create flashcards.
 
 | Feature                        | Sub-feature                                                                                  | Notes |
 |--------------------------------|----------------------------------------------------------------------------------------------|-------|
-| Custom Audio Segment Selection | Set custom start and end points for audio clips independent of subtitle timing               | 1     |
+| Custom audio segment selection | Set custom start and end points for audio clips independent of subtitle timing               | 1     |
+| Quick card creation            | Create cards directly without opening the editor window                                      |       |
 | Documentation                  | IINA set-up                                                                                  |       |
 | Audio extraction               | URL/Video stream support (platforms supported by [yt-dlp](https://github.com/yt-dlp/yt-dlp)) | 2     |
-| Field Mapping                  | Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`                                     |       |
+| Field mapping                  | Video filename mapping for `[config.ANKI.FIELDS.SOURCE]`                                     |       |
 
 > **Note 1**: Currently, the audio extraction strictly follows subtitle
 > timing.
@@ -42,7 +43,7 @@ and screenshot when triggered, making it easy to create flashcards.
 
 ## Requirements
 (all open-source)
-- [mpv](https://mpv.io/) (or any software built on mpv like [IINA](https://iina.io/) (MacOS)) - _cross-platform media player_
+- [mpv](https://mpv.io/) (or any software built on mpv like [IINA](https://iina.io/)) - _cross-platform media player_
 - [ffmpeg](https://ffmpeg.org/) - _a suite of libraries to handle multimedia files_
 - [Anki](https://apps.ankiweb.net/) - _powerful [SRS](https://en.wikipedia.org/wiki/Spaced_repetition) flashcard app_
 - [AnkiConnect](https://ankiweb.net/shared/info/2055492159) - _Anki add-on_
@@ -58,15 +59,15 @@ and screenshot when triggered, making it easy to create flashcards.
 
 ## Contributing & Support
 
-| Type                                                                 | Description                                      |
-|----------------------------------------------------------------------|--------------------------------------------------|
-| [Issues & Requests](https://github.com/alyssabedard/mpv2anki/issues) | Bug reports or feature requests                  | 
-| [Contributing](.github/CONTRIBUTING.md)                              | Fork the repo and submit a PR                    |
-| [Discussions](https://github.com/alyssabedard/mpv2anki/discussions)  | Getting help and questions                       |
-| [Support](.github/SUPPORT.md)                                        | Support                                          |
-| [Quick Start Guide](docs/quick_start_guide.md)                       | Quick Start Guide                                |
-| [Technical documentation](docs/dev)                                  | Technical documentation                          |
-| Help Wanted                                                          | Need help with OS-specific documentation/testing |
+| Type                                                                 | Description                        |
+|----------------------------------------------------------------------|------------------------------------|
+| [Issues & Requests](https://github.com/alyssabedard/mpv2anki/issues) | Bug reports or feature requests    | 
+| [Contributing](.github/CONTRIBUTING.md)                              | Fork the repo and submit a PR      |
+| [Discussions](https://github.com/alyssabedard/mpv2anki/discussions)  | Getting help and questions         |
+| [Support](.github/SUPPORT.md)                                        | Support                            |
+| [Quick Start Guide](docs/quick_start_guide.md)                       | Quick Start Guide                  |
+| [Technical documentation](docs/dev)                                  | Technical documentation            |
+| Help Wanted                                                          | Need help with OS-specific testing |
 
 _This script has been primarily tested on macOS and Windows.  I currently don't have 
 access to a Linux machine for thorough testing._
