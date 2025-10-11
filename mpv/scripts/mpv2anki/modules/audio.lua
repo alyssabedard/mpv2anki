@@ -79,6 +79,18 @@ function audio.create_audio_file(filename)
     local padding_end = 0.2                 -- Add padding at end
     local buffered_duration = duration + padding_start + padding_end
 
+    -- Get the current audio track (respects user's audio track selection)
+    local aid = mp.get_property("aid")
+    local audio_map = "0:a:0"  -- Default to first audio stream
+    
+    if aid and aid ~= "no" and aid ~= "" then
+        -- Use the currently selected audio track
+        audio_map = "0:" .. aid
+        msg.info("Using selected audio track: " .. aid)
+    else
+        msg.info("Using default audio track (first available)")
+    end
+
     -- Prepare FFmpeg command arguments
     local args = {
         ffmpeg_path,
@@ -86,7 +98,7 @@ function audio.create_audio_file(filename)
         "-i", input_file,       -- Input file
         "-ss", string.format("%.3f", sub_start - padding_start),  -- Start time with padding
         "-t", string.format("%.3f", buffered_duration),           -- Duration to extract
-        "-map", "0:a",          -- Select audio stream
+        "-map", audio_map,      -- Select the appropriate audio stream
         "-c:a", "libmp3lame",   -- Use MP3 codec
         "-q:a", "2",            -- Set audio quality (2 is high quality, range is 0-9)
         output_path
