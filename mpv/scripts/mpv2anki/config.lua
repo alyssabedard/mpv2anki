@@ -52,7 +52,7 @@ end
 -- Get OS-specific paths with username from config
 local function get_os_specific_paths()
     local config = read_config_file()
-    local username = config.anki_username or "User 1"
+    local username = config.anki_profile or "User 1"
     local home = os.getenv('HOME') or os.getenv('USERPROFILE')
 
     -- Detect OS
@@ -110,7 +110,8 @@ local function get_config()
         },
         MEDIA = {
             FORMAT_IMAGE = user_config.format_image or 'jpg',
-            FORMAT_AUDIO = user_config.format_audio or 'mp3'
+            FORMAT_AUDIO = user_config.format_audio or 'mp3',
+            RESIZE_IMAGE = user_config.resize_image or 'false'
         },
         SHORTCUTS = {
             PAUSE_AND_CAPTURE = {user_config.shortcut_pause_and_capture or "Shift+d", "Pause and capture to Anki"},

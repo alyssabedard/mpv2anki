@@ -1,14 +1,10 @@
 -----------------------------------------------------------------------
 -- scripts/mpv2anki/main.lua
--- Created by: Alyssa Bédard
+-- Author: Alyssa Bédard
 --      - GitHub: https://github.com/alyssabedard/
 --      - mpv2anki: https://github.com/alyssabedard/mpv2anki
 -----------------------------------------------------------------------
 --[[
-    Created by: Alyssa Bédard
-    GitHub: https://github.com/alyssabedard/
-    mpv2anki: https://github.com/alyssabedard/mpv2anki
-
     Main script.
     Read mpv2anki/config.lua and change values and settings to your preferences
 

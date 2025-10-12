@@ -213,7 +213,7 @@ them inside  `mpv2anki.conf`_
 **Configure Anki settings:**  
 _I recommend leaving the default values and importing the provided anki note type 
 first to make sure **mpv** and **mpv2anki** are installed properly_
-- `anki_username`: Your [Anki profile](https://docs.ankiweb.net/profiles.html) name
+- `anki_profile`: Your [Anki profile](https://docs.ankiweb.net/profiles.html) name
 - `deck_name`: Your target [deck](https://docs.ankiweb.net/getting-started.html#decks)
 - `note_type`: Card [type](https://docs.ankiweb.net/getting-started.html#note-types) (default: mpv2anki)
 - [Field](https://docs.ankiweb.net/getting-started.html#notes--fields) mappings for your cards
@@ -333,7 +333,7 @@ Please check this [folder](screenshots/troubleshooting) for more screenshots.
 ![example](screenshots/troubleshooting/macos-mpv-config.png)
 
 #### Windows - mpv media player + ffmpeg.exe
-(French Canadian Settings, `Programmes` = `Program Files`)_
+(French Canadian Settings, `Programmes` = `Program Files`)
 ![example](screenshots/troubleshooting/windows-mpv-exe-path.png)
 
 #### Windows - mpv config files
