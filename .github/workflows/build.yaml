@@ -25,7 +25,9 @@ jobs:
       - name: Create Package
         run: |
           mkdir -p build/mpv2anki/mpv
+          mkdir -p build/mpv2anki/note_types
           cp -r mpv/* build/mpv2anki/mpv/
+          cp -r docs/note_types/* build/mpv2anki/note_types
           cd build
           zip -r "../mpv2anki_${GITHUB_REF#refs/tags/v}.zip" mpv2anki/
 
