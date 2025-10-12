@@ -38,10 +38,10 @@ local is_stream = false
 -- !!! Check config.lua FFMPEG path !!!
 local function check_ffmpeg()
     local result = mp.command_native({          -- mp.command_native is MPV's function for running system commands
-        name = "subprocess",                    -- Tells MPV we want to run an external program as a subprocess
+        name = "subprocess",                    -- Tell MPV we want to run an external program as a subprocess
         args = {config.FFMPEG.PATH, "-version"},
-        capture_stdout = true,                  -- Captures normal output from the command
-        capture_stderr = true                   -- Captures any error messages
+        capture_stdout = true,                  -- Capture normal output from the command
+        capture_stderr = true                   -- Capture any error messages
     })
 
     if result.status ~= 0 then
@@ -80,7 +80,7 @@ function audio.create_audio_file(filename)
     local buffered_duration = duration + padding_start + padding_end
 
     -- Get the current audio track (respects user's audio track selection)
-    local aid = mp.get_property("aid")
+    local aid = mp.get_property("aid") -- https://mpv.io/manual/master/#options-aid
     local audio_map = "0:a:0"  -- Default to first audio stream
     
     if aid and aid ~= "no" and aid ~= "" then
@@ -99,8 +99,8 @@ function audio.create_audio_file(filename)
         "-ss", string.format("%.3f", sub_start - padding_start),  -- Start time with padding
         "-t", string.format("%.3f", buffered_duration),           -- Duration to extract
         "-map", audio_map,      -- Select the appropriate audio stream
-        "-c:a", "libmp3lame",   -- Use MP3 codec
-        "-q:a", "2",            -- Set audio quality (2 is high quality, range is 0-9)
+        "-c:a", "libmp3lame",   -- Use MP3 codec external libmp3lame encoding library https://trac.ffmpeg.org/wiki/Encode/MP3
+        "-q:a", "2",            -- Set audio MP3 quality https://trac.ffmpeg.org/wiki/Encode/MP3
         output_path
     }
 

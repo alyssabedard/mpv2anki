@@ -6,26 +6,21 @@ labels: bug
 assignees: 'alyssabedard'
 ---
 
-**Describe the bug** A clear and concise description of what the bug is.
+### Describe the bug
+A clear and concise description of what the bug is
 
-**To Reproduce**
-Steps to reproduce the behavior:
+### Repro Steps
+Steps to reproduce the behaviour
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+### Screenshots
+Screenshots if applicable
 
+### Logs 
+Detailed logs can normally be found at:  
+Windows: `%APPDATA%\mpv\mpv2anki.log`  
+MacOS/Linux: `~/.config/mpv/mpv2anki.log`
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-Screenshots If applicable, add screenshots to help explain your problem.
-
-**System Information:**
+### System Information:
 - OS: [e.g. macOS, Linux, Windows]
 - mpv version: [e.g. 0.39.0]
-- mpv2anki script version [e.g. 1.1.0] (can be found inside `scripts/mpv2anki/metadata.lua`)
-
-**Additional context**
-Add any other context about the problem here.
+- mpv2anki script version [e.g. 2025.10.31] (can be found inside `scripts/mpv2anki/metadata.lua`)

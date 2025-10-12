@@ -1,7 +1,10 @@
 # mpv2anki - Technical Documentation
 > ⚠️ **Note:** Restart MPV after making any changes to configuration files or scripts for the changes to take effect.
 
-Please read [Quick Start Guide](../quick_start_guide.md) first.
+Please read [Quick Start Guide](../quick_start_guide.md) first. 
+
+This script was mainly tested on MacOS. If any parts of this documentation
+is incorrect please open a [PR](../../.github/CONTRIBUTING.md). 
 
 ## Requirements
 - [Make](https://en.wikipedia.org/wiki/Make_(software))
@@ -72,7 +75,7 @@ mpv --msg-level=mpv2anki=debug "C:\Users\YOUR_VIDEO_PATH.mp4"
 ```
 macOS
 ```
-mpv --msg-level=mpv2anki=debug "/Users/Users\YOUR_VIDEO_PATH.mp4"
+mpv --msg-level=mpv2anki=debug "/Users/Users/YOUR_VIDEO_PATH.mp4"
 ```
 
 ### Safety Considerations
@@ -91,7 +94,7 @@ mpv --msg-level=mpv2anki=debug "/Users/Users\YOUR_VIDEO_PATH.mp4"
 
 1. **Creating a New Release**:
    ```bash
-   make tag    # Prompts for version number (e.g., 1.0.0)
+   make tag    # Prompts for version number (e.g., 2025-11-10)
    ```
    - Creates and pushes a new Git tag
    - Fails if tag already exists

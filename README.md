@@ -69,8 +69,8 @@ and screenshot when triggered, making it easy to create flashcards.
 | [Technical documentation](docs/dev)                                  | Technical documentation            |
 | Help Wanted                                                          | Need help with OS-specific testing |
 
-_This script has been primarily tested on macOS and Windows.  I currently don't have 
-access to a Linux machine for thorough testing._
+_This script has been primarily tested on macOS.  I currently don't have 
+access to a Linux and Windows machine for thorough testing._
 
 ## Acknowledgements
 

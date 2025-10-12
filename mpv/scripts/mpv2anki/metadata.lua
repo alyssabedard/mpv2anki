@@ -1,9 +1,8 @@
 return {
-    version = 'v1.2.0',
-    build_date = '2025-01-15',
+    version = '2025.10.11',
     script_name = 'mpv2anki',
-    min_mpv_version = '0.39.0',
-    min_anki_version = '24.11',
+    last_mpv_version_tested = '0.40.0',
+    last_anki_version_tested = '25.09',
     author = 'Alyssa Bédard',
     github = 'https://github.com/alyssabedard/mpv2anki',
     description = 'A script to export multimedia content from mpv to Anki',

@@ -8,3 +8,5 @@ Fixes #(issue number)
 How has this been tested?
 
 ## Screenshots (if appropriate)
+
+## Logs and/or Error Message

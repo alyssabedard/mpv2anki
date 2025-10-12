@@ -1,12 +1,13 @@
+# Change commands/variables below according to your own OS and settings
+
 # Set variable for mpv path (not config), macos, linux and windows respectively
 MPV := /Applications/mpv.app/Contents/MacOS/mpv
 #MPV := /usr/bin/mpv
 #MPV := "C:\Program Files\mpv\mpv.exe"
 #MPV := "C:/Program Files/mpv/mpv.exe"
 # Set video dir and video path for testing
-VIDEO_DIR := "/Users/alyssabedard/Movies/TV\ Shows\ and\ Movies/Test/"
-DEFAULT_VIDEO := "$(VIDEO_DIR)modaozushi.mp4"
-
+VIDEO_DIR := /Users/alyssabedard/Movies/TV Shows and Movies/Test/
+DEFAULT_VIDEO := $(VIDEO_DIR)modaozushi.mp4
 
 
 # Set mpv config directory path
@@ -36,17 +37,20 @@ endif
 
 help:
 	@echo "=== [mpv2anki] Available commands: ==="
-	@echo "  make \033[34msync-to-mpv\033[0m   	- Copy files to MPV configuration files. \033[31mWARNING: Will replace your conf files!!!!\033[0m"
 	@echo ""
-	@echo "  make \033[34mplay\033[0m         	- Open mpv from the terminal with debugging with a video for testing"
-	@echo "  make \033[34mlist\033[0m         	- List available videos in VIDEO_DIR"
-	@echo "  make \033[34mopen\033[0m         	- Open mpv and wait for drag and drop"
-	@echo "  make \033[34msync-and-play\033[0m  - sync + play"
+	@echo "Please update Makefile according to your OS and settings"
 	@echo ""
-	@echo "  make \033[34mtag\033[0m         	- Create a new tag (GitHub workflows)"
-	@echo "  make \033[34mretag\033[0m         	- Delete and recreate a tag (GitHub workflows)"
+	@echo "  make \033[34msync-to-mpv\033[0m   		- Copy files to MPV configuration files. \033[31mWARNING: Will replace your conf files!!!!\033[0m"
 	@echo ""
-	@echo "  make \033[34mhelp\033[0m         	- Show this help message"
+	@echo "  make \033[34mplay\033[0m         		- Open mpv from the terminal with debugging with a video for testing"
+	@echo "  make \033[34mlist\033[0m         		- List available videos in VIDEO_DIR (linux/MacOs)"
+	@echo "  make \033[34mopen\033[0m         		- Open mpv and wait for drag and drop"
+	@echo "  make \033[34msync-and-play\033[0m  		- sync-to-mpv + play  \033[31mWARNING: Will replace your conf files!!!!\033[0m"
+	@echo ""
+	@echo "  make \033[34mtag\033[0m         		- Create a new tag (GitHub workflows)"
+	@echo "  make \033[34mretag\033[0m         		- Delete and recreate a tag (GitHub workflows)"
+	@echo ""
+	@echo "  make \033[34mhelp\033[0m         		- Show this help message"
 
 
 # Warning: Will replace your input.conf and mpv.conf
@@ -67,11 +71,11 @@ sync-to-mpv:
 # $(MPV) $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
 #$(MPV) --msg-level=mpv2anki=debug $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
 play:
-	$(MPV) --msg-level=mpv2anki=debug $(if $(FILE),"$(FILE)",$(DEFAULT_VIDEO))
+	$(MPV) --msg-level=mpv2anki=debug $(if $(FILE),"$(FILE)", "$(DEFAULT_VIDEO)")
 
 # List available videos in VIDEO_DIR
 list:
-	ls $(VIDEO_DIR)
+	ls -l "$(VIDEO_DIR)"
 
 # Open mpv and wait for drag and drop
 open:
@@ -81,10 +85,10 @@ sync-and-play: sync-to-mpv play
 
 
 # Command to delete and recreate a tag
-# It will prompt: Enter version (e.g., 1.0.0):
+# It will prompt: Enter version (e.g., 2025.10.31):
 # Will delete existing tag and create new one
 retag:
-	@read -p "Enter version (e.g., 1.0.0): " version; \
+	@read -p "Enter version (e.g., 2025.10.31): " version; \
 	if [ -n "$$version" ]; then \
 		echo "Deleting tag v$$version..."; \
 		git push --delete origin "v$$version" 2>/dev/null || echo "Remote tag doesn't exist"; \
@@ -99,10 +103,10 @@ retag:
 	fi
 
 # Command to create a new tag
-# It will prompt: Enter version (e.g., 1.0.0):
+# It will prompt: Enter version (e.g., 2025.10.31):
 # If tag already exists, it will tell you to use retag
 tag:
-	@read -p "Enter version (e.g., 1.0.0): " version; \
+	@read -p "Enter version (e.g., 2025.10.31): " version; \
 	if [ -n "$$version" ]; then \
 		if git rev-parse "v$$version" >/dev/null 2>&1; then \
 			echo "Error: Tag v$$version already exists. Use 'make retag' to recreate it."; \
