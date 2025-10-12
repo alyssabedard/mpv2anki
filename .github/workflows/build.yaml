@@ -64,16 +64,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: mpv2anki v${{ steps.get_version.outputs.VERSION }}
-          files: ${{ steps.create_package.outputs.PACKAGE_PATH }}
-          body_path: CHANGELOG.md
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: mpv2anki v${{ steps.get_version.outputs.VERSION }}
           files: mpv2anki_${{ steps.get_version.outputs.VERSION }}.zip
           body_path: CHANGELOG.md
           generate_release_notes: true
