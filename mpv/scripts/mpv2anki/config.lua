@@ -108,6 +108,7 @@ local function get_config()
             },
             TAGS = parse_tags(user_config.tags or 'mpv,sentence-mining')
         },
+        SCREENSHOT_TYPE = user_config.screenshot_to_file or 'video',
         MEDIA = {
             FORMAT_IMAGE = user_config.format_image or 'jpg',
             FORMAT_AUDIO = user_config.format_audio or 'mp3',
