@@ -39,10 +39,16 @@ end
 function screenshot.create_screenshot(filename)
     local full_path = config.ANKI.MEDIA_PATH .. filename
 
+    local options = {"subtitles", "video"}
+    local user_option = config.SCREENSHOT_TYPE
+    if user_option ~= options[1] and user_option ~= options[2] then
+        user_option = "video"
+    end
+
     -- https://mpv.io/manual/master/#command-interface-screenshot-to-file
     local res = mp.commandv("screenshot-to-file",
-            full_path,
-            "video"  -- Only capture video, no subtitles (text)
+            full_path,  -- Filename
+            user_option
     )
 
     if not res then
